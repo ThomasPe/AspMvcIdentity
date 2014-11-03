@@ -7,6 +7,12 @@
 
 @Html.ActionLink("Create New Role", "Create") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
 <hr />
+@if (!string.IsNullOrEmpty(ViewBag.ResultMessage))
+{
+    <div class="alert alert-warning col-md-12">
+        @ViewBag.ResultMessage
+    </div>
+}
 <div>
     <table class="table table-striped table-hover table-nonfluid">
         <thead>

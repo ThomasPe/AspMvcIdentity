@@ -6,7 +6,12 @@
 @Html.ActionLink("List Roles", "Index") | @Html.ActionLink("Create New Role", "Create")
 
 <hr />
-
+@if (!string.IsNullOrEmpty(ViewBag.ResultMessage))
+{
+    <div class="alert alert-warning col-md-12">
+        @ViewBag.ResultMessage
+    </div>
+}
 @using (Html.BeginForm("RoleAddToUser", "Roles"))
 {
     @Html.AntiForgeryToken()
