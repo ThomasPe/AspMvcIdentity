@@ -1,21 +1,32 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Create";
 }
 
 <h2>Create Role</h2>
+
 @Html.ActionLink("List Roles", "Index") | @Html.ActionLink("Manage User Role", "ManageUserRoles")
-<hr/>
+<hr />
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
 
-    <div>
-        Role name
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <h4>Add Role</h4>
+            </div>
+            <label for="UserName" class="control-label col-md-2">Role Name</label>
+            <div class="col-md-10">
+                @Html.TextBox("RoleName", null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Save" />
+        </div>
     </div>
-    <p>
-        @Html.TextBox("RoleName")
-    </p>
-    <input type="submit" value="Save" />
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
